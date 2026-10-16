@@ -1,0 +1,90 @@
+{
+  "archive_table_consistency": "passed",
+  "formal_runtime_cells_preserved": 3600,
+  "main_routes": 27181,
+  "all_methods_routes": 28342,
+  "BL_supplementary_routes": 5567,
+  "source_and_implementation_hashes": "passed",
+  "python_syntax": "passed",
+  "build_and_tests": {
+    "commands_executed_during_review": [
+      "make -j2",
+      "make test",
+      "python3 tests/test_numeric_boundaries.py build/route_search build/kcrn_bl",
+      "python3 tests/test_seconds_boundary.py build/route_search build/kcrn_bl"
+    ],
+    "randomized_small_oracle_instances": 45,
+    "BL_unit_tests": "passed",
+    "fixed_query_interface": "passed",
+    "fractional_budget_and_positive_dwell": "passed",
+    "GTFS_HHMMSS_and_query_dwell_seconds_boundaries": "passed",
+    "cmake_ctest": "not executed: CMake is unavailable in the checking environment"
+  },
+  "fresh_aap": {
+    "query_count": 1260,
+    "executions": 2520,
+    "status_counts": {
+      "A": {
+        "no_route": 1052,
+        "ok": 154,
+        "resource_limit": 54
+      },
+      "AP": {
+        "no_route": 1052,
+        "ok": 208
+      }
+    },
+    "returned_routes": 2080,
+    "validation_failures": 0,
+    "quality_eligible_queries": 110,
+    "mean_ratio": 1.0,
+    "ratios_above_one": 0,
+    "time_basis": "processed_seconds",
+    "author_workstation_runtime_replaced": false,
+    "scope": "new scoring recheck on unchanged published query values; not restoration of historical query intent"
+  },
+  "current_exhaustive_instances": {
+    "instances": 20,
+    "A_matches": 20,
+    "BL_matches": 20,
+    "AP_feasibility_pass": 20,
+    "compared_ranks": 200,
+    "time_basis": "processed_seconds",
+    "vertices_range": [
+      3,
+      6
+    ],
+    "edges_range": [
+      10,
+      96
+    ],
+    "feasible_routes_range": [
+      15,
+      7585
+    ],
+    "dwell_range": [
+      619.0,
+      1718.0
+    ],
+    "tractability_rejections": {
+      "Austin": {
+        "edge_count": 3,
+        "enumeration_cap": 2
+      },
+      "Houston": {
+        "edge_count": 1,
+        "enumeration_cap": 1
+      }
+    }
+  },
+  "archive_raw_clock_audit": "28342 structural passes; 1146 original A/AP score mismatches remain",
+  "processed_seconds_audit": "0/28342 archived routes pass with unchanged released query windows",
+  "historical_experiment_provenance_resolved": false,
+  "current_manuscript_scope": "231518 revision separates current verification and archived timings; documentation synchronized",
+  "known_issues": "docs/KNOWN_ISSUES.md",
+  "figures": {
+    "count": 28,
+    "EPS_count": 8,
+    "runtime_source": "unchanged formal runtime_sec only"
+  }
+}

@@ -1,0 +1,11 @@
+# Seconds-based experimental protocol
+
+Production BL/A*/AP read the same processed station/trip CSV and fixed query row. All timetable arithmetic and query dwell are elapsed seconds. Legacy names `start_min`, `end_min`, `departure_min`, `arrival_min` contain seconds; station-level dwell fields are ignored. Query dwell must be positive. Costs are nonnegative; query keyword weights are positive and sum to one within 5e-6.
+
+`make test` verifies BL units, 45 randomized independent-oracle instances, common fixed-query inputs, second-valued dwell boundaries and fractional-budget boundaries. Current A* and BL maintain distinct scheduled-edge sequences, stop on first target arrival, do not repeat scheduled edges, count an eligible vertex once, and retain score ties for lexicographic route ordering. Budget tolerance is 1e-9; A* coverage pruning is conservative by 1e-12. AP uses rho=8, L=20, J=k through the experiment scripts. AP is a heuristic with no score approximation guarantee or full-k guarantee.
+
+`python3 scripts/run_seconds_study.py` runs 1,200 sensitivity queries for BL/A/AP into `results/seconds_unified/`. External timeout is 300 seconds including dataset loading; reported query time is preprocessing plus search, excluding loading. This distinction must be stated when comparing clocks. The full three-method runtime study has not been repeated on the author's workstation in this task. Do not call a cloud verification run a workstation experiment.
+
+`python3 scripts/recheck_aap.py` attempts all 1,260 A*/AP queries for scoring verification. It records a separate 1,536 MiB per-process virtual-memory cap and runs four workers. Its results and environment are in `results/rechecked_aap/`; they do not replace formal runtime records. Independent validation covers every returned route and score; city-wide no-route claims are not independently enumerated. `scripts/validate_seconds_instances.py` creates the 20 separate tractable city-subgraph instances for exhaustive validation.
+
+Original fixed query bytes are preserved, not silently regenerated or converted. Realized inputs are authoritative for the new literal-seconds run; their historical intended clock meaning is not established. Old formal runtimes, original score/quality tables and separately sourced BL paths are labelled historical under `results/final/`.
