@@ -1,0 +1,11 @@
+station_id,dwell_min,keyword,coverage
+S,5,k1,0.2
+A,5,k1,1
+A,5,k2,0.6
+B,5,k2,1
+B,5,k3,0.7
+C,10,k3,1
+C,10,k4,1
+D,5,k5,1
+E,5,k6,1
+T,5,k7,1

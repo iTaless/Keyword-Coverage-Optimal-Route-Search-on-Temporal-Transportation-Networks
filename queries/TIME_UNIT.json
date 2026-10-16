@@ -1,0 +1,21 @@
+{
+  "time_unit": "seconds",
+  "query_values_modified": false,
+  "production_input": "data/processed/<city>/stations.csv and trips.csv",
+  "legacy_HHMMSS_subtraction_allowed": false,
+  "query_count": 1260,
+  "query_start_not_valid_as_HHMMSS": 80,
+  "query_end_not_valid_as_HHMMSS": 278,
+  "city_diagnostics": {
+    "Austin": {
+      "max_scheduled_arrival_seconds": 101160,
+      "queries_starting_after_last_scheduled_arrival": 401,
+      "queries": 630
+    },
+    "Houston": {
+      "max_scheduled_arrival_seconds": 107100,
+      "queries_starting_after_last_scheduled_arrival": 454,
+      "queries": 630
+    }
+  }
+}
