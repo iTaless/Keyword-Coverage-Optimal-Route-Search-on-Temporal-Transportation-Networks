@@ -1,0 +1,140 @@
+{
+  "record_origin": "author_workstation_runtime_plus_separately_sourced_route_evidence",
+  "normalization_only": false,
+  "normalizer": "scripts/import_author_results.py",
+  "normalizer_sha256": "e578f308c0f1a368b19a316435922a96a53d6e30df979cc81db1c48aaf1389bb",
+  "generated_utc": "2026-10-16T04:03:46.212527+00:00",
+  "reported_hardware": {
+    "cpu": "Intel Core i7-9700K, 3.60 GHz",
+    "memory": "32 GB RAM",
+    "operating_system": "Ubuntu 18.04"
+  },
+  "timeout_seconds": 300,
+  "source_files": [
+    {
+      "path": "queries/final_queries_1260.csv",
+      "sha256": "a68effbfd606c906af94f26ca85eb6f5404ff4b80dbdb43e7ad0bcf4443e0102"
+    },
+    {
+      "path": "results/final/source/runtime_results_3600.csv",
+      "sha256": "9d08ef719c718fee31a89d1feec80c090087f85476f12ab89702afc5fd650211"
+    },
+    {
+      "path": "results/final/source/routes_22775.csv",
+      "sha256": "e5b2569dc1faa426129f28af856e50f6b33380f26267810f76de2f6d5624f1e0"
+    },
+    {
+      "path": "results/final/source/route_validation_22775.csv",
+      "sha256": "a3fd8aaf2095488bb2c64ec780749b4f613a8862af5339ec2393ce1086fc26c6"
+    },
+    {
+      "path": "results/final/source/route_query_summary_recorded.csv",
+      "sha256": "3166b6e46d69e9bc9cdaced2b8831f82bdf040b70c89a44b699c65f0dbdb6385"
+    },
+    {
+      "path": "results/final/source/route_group_summary_recorded.csv",
+      "sha256": "66dd14dfd125938efe03bf21213665f1dced7287bc56cfdec474a5345f73a309"
+    },
+    {
+      "path": "results/final/source/author_runtime_results.xlsx",
+      "sha256": "fcc6a5e1c37b48d276741843ce9156c31edf9db94fb2077a80dec658da664157"
+    },
+    {
+      "path": "results/final/source/author_runtime_summary.xlsx",
+      "sha256": "ddb29707d4419d221f04abc50451586a0306cd86c1c9f33e47015e2e52d72e52"
+    }
+  ],
+  "published_implementation_files": [
+    {
+      "path": "src/main.cpp",
+      "sha256": "2fdd1a2ec404a250410ef64ec2bd485d48769193490a27139a54a78153bfc7fe"
+    },
+    {
+      "path": "baseline_bl/fixed_query_runner.cpp",
+      "sha256": "b8e2df0b988dfefb366b8f381ec213ffe09923677250db646a570515dd50a5d0"
+    },
+    {
+      "path": "baseline_bl/bl_time_expanded.hpp",
+      "sha256": "cfcaf4446e83e37fd8f5479276397f613be4d495e26b174c731b3099fa2e52cc"
+    },
+    {
+      "path": "baseline_bl/transit_router.hpp",
+      "sha256": "371356cf28589eb58d99622e9070b9df19e8f91be1d4716ac14de097cd35a4ba"
+    },
+    {
+      "path": "scripts/run_experiments.py",
+      "sha256": "ab2419debf2e246e156498280f90b767c4efac0d1464f82a97c3472d8ee0b944"
+    },
+    {
+      "path": "scripts/verify_results.py",
+      "sha256": "c045aaff28cd7bf3671ec112a632615ceb4d5f49b9d95dad55e689ed01e8a8c7"
+    }
+  ],
+  "limitations": [
+    "Formal runtime cells and outcomes are preserved from the author workbook.",
+    "BL route fields may describe separate supplementary executions, including some whose original formal run timed out.",
+    "Raw HHMMSS-valued timestamps were used numerically by archived route runners; this is not equivalent to seconds.",
+    "All archived routes fail replay against processed second-valued edges with the currently released query windows.",
+    "Recorded A/AP quality values are preserved; 1146 route scores differ even under the archived raw clock."
+  ],
+  "formal_runtime_values_unchanged": true,
+  "integration_script": "scripts/integrate_bl_results.py",
+  "integration_script_sha256": "03adce39aa4553462aef278cc74e20d9bc6744276590f1a35cc1a80d50d17c15",
+  "archived_routes_input_basis": "raw_HHMMSS_as_integer",
+  "processed_seconds_compatibility": "not established; replay fails",
+  "supplementary_BL": {
+    "query_count": 703,
+    "queries_with_routes": 634,
+    "routes": 5567,
+    "formal_runtime_replacement": false,
+    "metadata_location": "results/final/source/bl_recovery.zip",
+    "original_batches": [
+      {
+        "original_archive_name": "BL_part1_results_to_return.zip",
+        "original_archive_sha256": "7fe3b7fdea4efea9668bfcf907fef0535dc5d860954454ddd97a428508c694c6",
+        "member_prefix": "part1/"
+      },
+      {
+        "original_archive_name": "BL_part2_results_to_return.zip",
+        "original_archive_sha256": "73df49e9208c337caf066ce5db2ed02d0877b7b2649aec02fbb8af0594fd13e1",
+        "member_prefix": "part2/"
+      },
+      {
+        "original_archive_name": "BL_part3_results_to_return.zip",
+        "original_archive_sha256": "569ed5e42fa4a13fdbb5bd74a3c96546e569cfff25cccfe1b34921501bfc1bc7",
+        "member_prefix": "part3/"
+      },
+      {
+        "original_archive_name": "BL_timeout50_results_t600s_n50(1).zip",
+        "original_archive_sha256": "13df77e9495ce71b1ccdb92387026615536aa7e3532a2137bff0bc86d110fa10",
+        "member_prefix": "part4/"
+      }
+    ],
+    "source_archives": [
+      {
+        "path": "results/final/source/bl_recovery.zip",
+        "sha256": "78e7f8fe621d9b387e9278791d89b40678a21a9b1780b4e998e5eba0b5e4bc10"
+      }
+    ]
+  },
+  "publication_metadata_scope": "Machine-specific kernel/platform strings and an obsolete narrative note are omitted from public archival copies. Measured times, statuses, query parameters, route sequences and scores are unchanged.",
+  "archival_publication_copies": [
+    {
+      "path": "results/final/source/original_aap_package/original_aap_package.zip",
+      "original_archive_sha256": "fec3389646395bdea9569c84cc84eb34d32122a35b94af80882dcfff4312e202",
+      "distributed_archive_sha256": "4f9c286b34b1cc5e0f212b26705b6481d983be150d6c1714dd2ea4fefdd8caf1"
+    }
+  ],
+  "schema_version": 2,
+  "artifacts": {
+    "historical_runtime": "results/final/runtime.csv",
+    "all_archived_routes": "results/final/routes.csv",
+    "runtime_groups": "results/final/runtime_summary.csv",
+    "historical_quality": "results/final/quality.csv",
+    "query_validation": "results/final/validation/queries.csv",
+    "route_validation": "results/final/validation/routes.csv",
+    "bl_recovery_runtime": "results/final/bl_recovery/runtime.csv"
+  },
+  "layout_script": "scripts/results_layout.py",
+  "layout_script_sha256": "b04356cc392783db5a1ba72dc599f721eb0ed8193b3e762a4cbc8bd363ad2231"
+}

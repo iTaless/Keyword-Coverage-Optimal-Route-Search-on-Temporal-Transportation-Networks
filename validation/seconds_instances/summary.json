@@ -1,0 +1,34 @@
+{
+  "instances": 20,
+  "A_matches": 20,
+  "BL_matches": 20,
+  "AP_feasibility_pass": 20,
+  "compared_ranks": 200,
+  "time_basis": "processed_seconds",
+  "vertices_range": [
+    3,
+    6
+  ],
+  "edges_range": [
+    10,
+    96
+  ],
+  "feasible_routes_range": [
+    15,
+    7585
+  ],
+  "dwell_range": [
+    619.0,
+    1718.0
+  ],
+  "tractability_rejections": {
+    "Austin": {
+      "edge_count": 3,
+      "enumeration_cap": 2
+    },
+    "Houston": {
+      "edge_count": 1,
+      "enumeration_cap": 1
+    }
+  }
+}

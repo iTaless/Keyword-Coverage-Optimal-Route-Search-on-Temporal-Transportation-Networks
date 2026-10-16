@@ -1,0 +1,15 @@
+* text=auto
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.csv -text
+*.jsonl -text
+data/archive/** -text
+
+data/raw/** linguist-generated=true
+data/processed/** linguist-generated=true
+results/final/** linguist-generated=true
+

@@ -1,0 +1,118 @@
+{
+  "format": "zip-concatenated-parts-v1",
+  "files": [
+    {
+      "path": "data/processed/Austin/dwell_times.csv",
+      "size": 60331,
+      "sha256": "ca79578c2a01cd080b368408a78d9b52fc7ea775196020e8f3954377c739dbfa"
+    },
+    {
+      "path": "data/processed/Austin/stations.csv",
+      "size": 899420,
+      "sha256": "90fd5b1fd19fca869f2e1eb6e75d1fa402d00a9ee97ec2e002e4257af6b98fcf"
+    },
+    {
+      "path": "data/processed/Austin/trips.csv",
+      "size": 22429702,
+      "sha256": "cc3f83a4610e7a95a513db7086b157e2cac9a5524dccf7bae5315786d1e68f5f"
+    },
+    {
+      "path": "data/processed/Houston/dwell_times.csv",
+      "size": 206954,
+      "sha256": "c3d375235f997ccf6550849c0237a65fed7eebd12758f49cfae8d09acbc7a2b7"
+    },
+    {
+      "path": "data/processed/Houston/stations.csv",
+      "size": 3220526,
+      "sha256": "b7b5a713104b9b754716932aa421fbbe355b9e47bc02e59ca914053249a644b1"
+    },
+    {
+      "path": "data/processed/Houston/trips.csv",
+      "size": 63299917,
+      "sha256": "5683309b32cd71c132ef4020687ac5ebaa0cf0435ae5ddf3d0ddc0ddacafbef7"
+    },
+    {
+      "path": "data/raw/Austin/edges.txt",
+      "size": 14698393,
+      "sha256": "53ae8e054907bbf1d577281962e17e0d870d58c5cd380cd453ed5486d8c56806"
+    },
+    {
+      "path": "data/raw/Austin/labels.txt",
+      "size": 163982,
+      "sha256": "7c097b36a6a8ac0b4339554c3fe99a882f189c98d444d0b6be272c95f2437ff0"
+    },
+    {
+      "path": "data/raw/Houston/edges.txt",
+      "size": 40495710,
+      "sha256": "597a4a6f0c88e948446ba845d74950b0dbb6c2f5020b8ca747b2fc786617c99a"
+    },
+    {
+      "path": "data/raw/Houston/labels.txt",
+      "size": 598500,
+      "sha256": "f37b2d27d82be54fb00679f72af64b7551641c4073e360fed4e37bb76085320a"
+    }
+  ],
+  "parts": [
+    {
+      "name": "networks.zip.part001",
+      "size": 2097152,
+      "sha256": "c0ec36e93c8eb88be898028d10266ae1bd91652d1d63914cca2c7d680e59a9d0"
+    },
+    {
+      "name": "networks.zip.part002",
+      "size": 2097152,
+      "sha256": "23e4f267a1080b9e8714ecbaffea5c74f03f6a037394514be6905223fcb76413"
+    },
+    {
+      "name": "networks.zip.part003",
+      "size": 2097152,
+      "sha256": "0edb5fbc80862de070dfcd08f9fcfdf7bc534e5c2a30b1a1b16fd96753c6a8c8"
+    },
+    {
+      "name": "networks.zip.part004",
+      "size": 2097152,
+      "sha256": "77552071788a0d0ea0978fea285f4ff09fe02a58e56d41ee23d7f7598c6af5ba"
+    },
+    {
+      "name": "networks.zip.part005",
+      "size": 2097152,
+      "sha256": "4bcb67cb83faff6ce7ca15a29fa7e684504afbf0de57c9c35c600c14dd5745e2"
+    },
+    {
+      "name": "networks.zip.part006",
+      "size": 2097152,
+      "sha256": "5a216de7a3411b3fb320f7f6c0252edcc593d14a2e7996b59f469280e439c98b"
+    },
+    {
+      "name": "networks.zip.part007",
+      "size": 2097152,
+      "sha256": "e2f96b6b9d477030905737ed9e7a7b76f5edeeef928c43c12ea07d62ad755a81"
+    },
+    {
+      "name": "networks.zip.part008",
+      "size": 2097152,
+      "sha256": "240411627434a8d67e93bdef03ac26820be12a7ee6eeaf3767b3cdfb0ba6d543"
+    },
+    {
+      "name": "networks.zip.part009",
+      "size": 2097152,
+      "sha256": "e98f1460bc33c9e29012cc0ee58ba3323772ce6d434b0afa66ddb206ba949371"
+    },
+    {
+      "name": "networks.zip.part010",
+      "size": 2097152,
+      "sha256": "bf4fe34ca80579291bf7515fc0e6769daae28ec79bb428d05686d5602d971958"
+    },
+    {
+      "name": "networks.zip.part011",
+      "size": 2097152,
+      "sha256": "2fcb7361711a3c8e7feefb5b59d4ebe3451fc008e589f4c8ccfd4002cc075a70"
+    },
+    {
+      "name": "networks.zip.part012",
+      "size": 1843075,
+      "sha256": "67874c68eae118f39dc9d9fb4430e8326b4107100b5808fc6066f6a2c3e65be8"
+    }
+  ],
+  "archive_sha256": "bcb1bc3dfe67f20a787a66bd09ea531f6dbf661f11a5aebaf3e3cf21b0b61290"
+}

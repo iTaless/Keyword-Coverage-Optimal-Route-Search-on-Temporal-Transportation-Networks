@@ -1,0 +1,11 @@
+instance_id,rank,exhaustive_kc,edge_ids,A_kc,BL_kc,A_matches,BL_matches
+austin_seconds_09,0,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365805;austin_e364868,1,1,1,1
+austin_seconds_09,1,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365805;austin_e364870,1,1,1,1
+austin_seconds_09,2,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365805;austin_e364908,1,1,1,1
+austin_seconds_09,3,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365805;austin_e365031,1,1,1,1
+austin_seconds_09,4,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365805;austin_e365033,1,1,1,1
+austin_seconds_09,5,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365805;austin_e365061,1,1,1,1
+austin_seconds_09,6,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365807;austin_e364870,1,1,1,1
+austin_seconds_09,7,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365807;austin_e365033,1,1,1,1
+austin_seconds_09,8,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365845;austin_e364870,1,1,1,1
+austin_seconds_09,9,1.0,austin_e106154;austin_e106621;austin_e107213;austin_e365845;austin_e364908,1,1,1,1

@@ -1,0 +1,2 @@
+query_id,city,parameter,value,query_no,source,target,start_min,end_min,budget,keywords,weights,k,dwell_seconds,seed
+austin_seconds_07,Austin,small_seconds,7,7,34,2587,49316,54716,70,0|24|50|12|84,0.20000000000000001|0.20000000000000001|0.20000000000000001|0.20000000000000001|0.20000000000000001,10,765,20261928

@@ -1,0 +1,268 @@
+{
+  "A": {
+    "query_id": "austin_seconds_04",
+    "algorithm": "A",
+    "status": "ok",
+    "runtime_ms": 3.077277,
+    "load_ms": 0.245844,
+    "preprocess_ms": 0.051226,
+    "search_ms": 2.780207,
+    "expanded": 3030,
+    "generated": 3371,
+    "window_edges": 74,
+    "time_edges": 74,
+    "filtered_edges": 74,
+    "rho": 8,
+    "rounds": 20,
+    "runs": 10,
+    "seed": 20261928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447541"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68456
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447548"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 69656
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447602"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70245
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447617"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68445
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447653"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70365
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447665"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68145
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447735"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70245
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447740"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68445
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447787"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70365
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447796"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68145
+      }
+    ]
+  },
+  "BL": {
+    "query_id": "austin_seconds_04",
+    "algorithm": "BL",
+    "status": "ok",
+    "runtime_ms": 1.670334,
+    "load_ms": 0.278243,
+    "preprocess_ms": 0,
+    "search_ms": 1.392091,
+    "expanded": 2668,
+    "static_nodes": 46,
+    "static_arcs": 127,
+    "dwell_seconds": 1718,
+    "seed": 20261928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447541"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68456
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447548"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 69656
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447602"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70245
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447617"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68445
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447653"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70365
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447665"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68145
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447735"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70245
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447740"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68445
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447787"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 70365
+      },
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017110",
+          "austin_e447796"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 68145
+      }
+    ]
+  },
+  "AP": {
+    "query_id": "austin_seconds_04",
+    "algorithm": "AP",
+    "status": "ok",
+    "runtime_ms": 0.696041,
+    "load_ms": 0.473662,
+    "preprocess_ms": 0.075572,
+    "search_ms": 0.146807,
+    "expanded": 30,
+    "generated": 257,
+    "window_edges": 74,
+    "time_edges": 74,
+    "filtered_edges": 74,
+    "rho": 8,
+    "rounds": 20,
+    "runs": 10,
+    "seed": 20261928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "austin_e367727",
+          "austin_e017175",
+          "austin_e447525"
+        ],
+        "score": 1,
+        "budget": 17.46,
+        "arrival_min": 65756
+      }
+    ]
+  }
+}

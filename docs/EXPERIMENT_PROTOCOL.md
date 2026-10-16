@@ -1,5 +1,7 @@
 # Seconds-based experimental protocol
 
+After cloning, run `python3 scripts/prepare_data.py` once to restore the released network files from `data/archive/`. The script verifies every restored file against its original SHA-256 identity; this packaging step does not convert or regenerate inputs.
+
 Production BL/A*/AP read the same processed station/trip CSV and fixed query row. All timetable arithmetic and query dwell are elapsed seconds. Legacy names `start_min`, `end_min`, `departure_min`, `arrival_min` contain seconds; station-level dwell fields are ignored. Query dwell must be positive. Costs are nonnegative; query keyword weights are positive and sum to one within 5e-6.
 
 `make test` verifies BL units, 45 randomized independent-oracle instances, common fixed-query inputs, second-valued dwell boundaries and fractional-budget boundaries. Current A* and BL maintain distinct scheduled-edge sequences, stop on first target arrival, do not repeat scheduled edges, count an eligible vertex once, and retain score ties for lexicographic route ordering. Budget tolerance is 1e-9; A* coverage pruning is conservative by 1e-12. AP uses rho=8, L=20, J=k through the experiment scripts. AP is a heuristic with no score approximation guarantee or full-k guarantee.
@@ -10,4 +12,4 @@ Production BL/A*/AP read the same processed station/trip CSV and fixed query row
 
 Original fixed query bytes are preserved, not silently regenerated or converted. Realized inputs are authoritative for the new literal-seconds run; their historical intended clock meaning is not established. Old formal runtimes, original score/quality tables and separately sourced BL paths are labelled historical under `results/final/`.
 
-Paper figure exports are omitted from the upload package. They can be regenerated with scripts/plot_results.py from results/final/main_study.runtime.csv. Public archival copies omit machine-specific kernel/platform strings; measured results, execution limits and concurrency settings are retained.
+Paper figure exports are omitted from the upload package. They can be regenerated with scripts/plot_results.py from results/final/runtime.csv. Public archival copies omit machine-specific kernel/platform strings; measured results, execution limits and concurrency settings are retained.

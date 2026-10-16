@@ -4,12 +4,15 @@ Not a physical-seconds validation or a new exact-search quality experiment.
 """
 import csv,collections,json,zipfile,io
 from pathlib import Path
+from results_layout import merge, write
 repo=Path(__file__).resolve().parents[1]
-out=repo/'results/final/audit'
-out.mkdir(parents=True,exist_ok=True)
+final=repo/'results/final'
+legacy=(final/'route_level.routes.csv').exists()
+out=final/'audit'
+if legacy:out.mkdir(parents=True,exist_ok=True)
 def rows(p):return list(csv.DictReader(open(p,newline='',encoding='utf-8-sig')))
 queries={q['query_id']:q for q in rows(repo/'queries/final_queries_1260.csv')}
-routes=rows(repo/'results/final/route_level.routes.csv')
+routes=rows(final/'route_level.routes.csv') if legacy else [r for r in rows(final/'routes.csv') if r['algorithm'] in ('A','AP')]
 needed=collections.defaultdict(set)
 for r in routes:needed[r['city']].update(map(int,r['edge_ids'].split(';')))
 lookup={};labels={};dwell={}
@@ -34,10 +37,13 @@ for r in routes:
    if wait>=threshold:covered.update(labels[city][v])
   scores[basis]=sum(w for k,w in zip(map(int,q['keywords'].split('|')),map(float,q['weights'].split('|'))) if k in covered)
  result.append({'query_id':r['query_id'],'algorithm':r['algorithm'],'route_rank':r['route_rank'],'recorded_kc':r['kc'],'recomputed_node_dwell_raw_clock':scores['node'],'recomputed_query_dwell_raw_clock':scores['query'],'node_match':int(abs(float(r['kc'])-scores['node'])<1e-6),'query_match':int(abs(float(r['kc'])-scores['query'])<1e-6)})
-with open(out/'score_rule_comparison.csv','w',newline='') as f:
- w=csv.DictWriter(f,fieldnames=list(result[0]));w.writeheader();w.writerows(result)
+if legacy:
+ write(out/'score_rule_comparison.csv',result)
+else:
+ write(final/'validation/routes.csv',merge(rows(final/'validation/routes.csv'),result,prefix='node_dwell_'))
 summary={'time_basis':'raw_integer_clock_diagnostic_only','match_absolute_tolerance':1e-6,'routes':len(result),'node_dwell_matches':sum(r['node_match'] for r in result),'query_dwell_matches':sum(r['query_match'] for r in result),'node_only_matches':sum(r['node_match'] and not r['query_match'] for r in result),'node_dwell_mismatches':sum(not r['node_match'] for r in result),'query_dwell_mismatches':sum(not r['query_match'] for r in result),'algorithms':{a:{'routes':sum(r['algorithm']==a for r in result),'node_mismatches':sum(r['algorithm']==a and not r['node_match'] for r in result),'query_mismatches':sum(r['algorithm']==a and not r['query_match'] for r in result)} for a in ['A','AP']}}
-print(json.dumps(summary,indent=2));(out/'score_provenance.json').write_text(json.dumps(summary,indent=2))
+print(json.dumps(summary,indent=2))
+if legacy:(out/'score_provenance.json').write_text(json.dumps(summary,indent=2))
 
 # Preserve the mixed-schema source; this mapping is a diagnostic hypothesis.
 with zipfile.ZipFile(repo/'results/final/source/original_aap_package/original_aap_package.zip') as archive:
@@ -53,4 +59,10 @@ schema={'source_rows':len(original),'blank_query_no_rows':sum(not r['query_no'] 
         'score_differing_path_keys_above_1e_6':sum(max(v)-min(v)>1e-6 for v in groups.values()),
         'identity_mapping_certified':False,
         'note':'Numeric query_id as replicate is a diagnostic hypothesis, not authorization to merge mixed-schema rows.'}
-(out/'original_source_schema.json').write_text(json.dumps(schema,indent=2))
+if legacy:
+ (out/'original_source_schema.json').write_text(json.dumps(schema,indent=2))
+else:
+ report=json.loads((final/'summary.json').read_text())
+ report['audits']['node_dwell']=summary
+ report['audits']['original_aap_schema']=schema
+ (final/'summary.json').write_text(json.dumps(report,indent=2)+'\n')

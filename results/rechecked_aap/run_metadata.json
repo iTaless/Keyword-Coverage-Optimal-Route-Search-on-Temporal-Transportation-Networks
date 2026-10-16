@@ -1,0 +1,33 @@
+{
+  "time_basis": "processed_seconds",
+  "query_sha256": "a68effbfd606c906af94f26ca85eb6f5404ff4b80dbdb43e7ad0bcf4443e0102",
+  "binary_sha256": "ee21e91f0762f4c4b9858104caffd8ed99a066ac75d2b651eb63e76d2535e4f9",
+  "source_sha256": "2fdd1a2ec404a250410ef64ec2bd485d48769193490a27139a54a78153bfc7fe",
+  "timeout_seconds": 300.0,
+  "query_count": 1260,
+  "memory_limit_mib": 1536,
+  "datasets": {
+    "Austin": {
+      "stations.csv": "90fd5b1fd19fca869f2e1eb6e75d1fa402d00a9ee97ec2e002e4257af6b98fcf",
+      "trips.csv": "cc3f83a4610e7a95a513db7086b157e2cac9a5524dccf7bae5315786d1e68f5f"
+    },
+    "Houston": {
+      "stations.csv": "b7b5a713104b9b754716932aa421fbbe355b9e47bc02e59ca914053249a644b1",
+      "trips.csv": "5683309b32cd71c132ef4020687ac5ebaa0cf0435ae5ddf3d0ddc0ddacafbef7"
+    }
+  },
+  "workers": 4,
+  "aggregation_script_sha256": "8925ee17cbc7ed0a170548cb36dbdac737bb9ffe805d4ebe3a4499fb4802ad29",
+  "python": "3.12.14",
+  "generated_utc": "2026-10-15T20:30:47Z",
+  "runtime_comparison_use": false,
+  "command": [
+    "scripts/recheck_aap.py",
+    "--workers",
+    "4",
+    "--timeout",
+    "300",
+    "--memory-mib",
+    "1536"
+  ]
+}

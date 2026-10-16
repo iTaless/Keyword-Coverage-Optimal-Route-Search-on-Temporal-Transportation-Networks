@@ -1,0 +1,155 @@
+{
+  "formal_runtime_records": 3600,
+  "main_query_ids": 1200,
+  "runtime_status_counts": {
+    "A:completed": 1163,
+    "A:timeout": 37,
+    "AP:completed": 1200,
+    "BL:completed": 653,
+    "BL:timeout": 547
+  },
+  "route_level_queries": 1260,
+  "route_records": 22775,
+  "route_records_by_algorithm": {
+    "A": 11687,
+    "AP": 11088
+  },
+  "structural_validation_pass": 22775,
+  "score_match_query_dwell": 21629,
+  "score_mismatch_query_dwell": 1146,
+  "quality_queries_recorded": 240,
+  "quality_ratio_mean_recorded": 0.936833585471725,
+  "quality_ratio_equal_one_recorded": 224,
+  "quality_ratio_zero_recorded": 14,
+  "quality_ratio_between_zero_and_one_recorded": 2,
+  "quality_ratio_above_one_recorded": 0,
+  "bl_route_sequences_available": true,
+  "bl_query_routes_available": 634,
+  "bl_query_zero_route_answers_available": 36,
+  "bl_queries_rerun": 703,
+  "bl_supplementary_status_counts": {
+    "ok": 634,
+    "no_route": 36,
+    "timeout": 33
+  },
+  "bl_route_records": 5567,
+  "main_study_route_records_including_supplementary_BL": 27181,
+  "all_methods_route_records": 28342,
+  "bl_validation_scope": "raw_integer_clock_only",
+  "processed_seconds_route_consistency": "failed; see validation/routes.csv and summary.json",
+  "original_runtime_values_and_statuses_preserved": true,
+  "audits": {
+    "time_and_score": {
+      "network_inputs": {
+        "Austin": {
+          "stations": 2683,
+          "scheduled_edges": 535542,
+          "mean_scheduled_out_degree": 199.60566530003726,
+          "rows_with_raw_and_seconds_clock_difference": 535542,
+          "processed_conversion_and_id_mapping_verified": true
+        },
+        "Houston": {
+          "stations": 9094,
+          "scheduled_edges": 1446762,
+          "mean_scheduled_out_degree": 159.08972949197272,
+          "rows_with_raw_and_seconds_clock_difference": 1446762,
+          "processed_conversion_and_id_mapping_verified": true
+        }
+      },
+      "route_audit_by_algorithm": {
+        "A": {
+          "routes": 11687,
+          "raw_integer_clock_structural_pass": 11687,
+          "raw_integer_clock_score_match": 11064,
+          "processed_seconds_structural_pass": 0,
+          "processed_seconds_score_match": 0
+        },
+        "AP": {
+          "routes": 11088,
+          "raw_integer_clock_structural_pass": 11088,
+          "raw_integer_clock_score_match": 10565,
+          "processed_seconds_structural_pass": 0,
+          "processed_seconds_score_match": 0
+        },
+        "BL": {
+          "routes": 5567,
+          "raw_integer_clock_structural_pass": 5567,
+          "raw_integer_clock_score_match": 5567,
+          "processed_seconds_structural_pass": 0,
+          "processed_seconds_score_match": 0
+        }
+      },
+      "recorded_quality_queries": 240,
+      "recorded_quality_queries_with_any_raw_clock_score_mismatch": 81,
+      "recorded_quality_queries_with_changed_best_score": 56,
+      "declared_seconds_and_raw_integer_clock_are_not_equivalent": true,
+      "recorded_quality_values_overwritten": false
+    },
+    "node_dwell": {
+      "time_basis": "raw_integer_clock_diagnostic_only",
+      "match_absolute_tolerance": 1e-06,
+      "routes": 22775,
+      "node_dwell_matches": 21954,
+      "query_dwell_matches": 21629,
+      "node_only_matches": 325,
+      "node_dwell_mismatches": 821,
+      "query_dwell_mismatches": 1146,
+      "algorithms": {
+        "A": {
+          "routes": 11687,
+          "node_mismatches": 423,
+          "query_mismatches": 623
+        },
+        "AP": {
+          "routes": 11088,
+          "node_mismatches": 398,
+          "query_mismatches": 523
+        }
+      }
+    },
+    "original_aap_schema": {
+      "source_rows": 35472,
+      "blank_query_no_rows": 12697,
+      "provisional_path_keys": 30376,
+      "duplicate_rows_after_provisional_mapping": 5096,
+      "score_differing_path_keys_any_precision": 648,
+      "score_differing_path_keys_above_1e_6": 10,
+      "identity_mapping_certified": false,
+      "note": "Numeric query_id as replicate is a diagnostic hypothesis, not authorization to merge mixed-schema rows."
+    }
+  },
+  "bl_recovery": {
+    "cohorts": {
+      "previously_completed_653": {
+        "queries": 653,
+        "statuses": {
+          "ok": 586,
+          "no_route": 35,
+          "timeout": 32
+        },
+        "routes": 5111
+      },
+      "previously_timed_out_50": {
+        "queries": 50,
+        "statuses": {
+          "ok": 48,
+          "no_route": 1,
+          "timeout": 1
+        },
+        "routes": 456
+      }
+    },
+    "combined_unique_queries": 703,
+    "combined_queries_with_routes": 634,
+    "combined_route_count": 5567,
+    "independent_route_checks_passed": 5567,
+    "shared_query_ids_between_653_and_50": 0,
+    "original_main_study_modified": false,
+    "no_route_relabelled_as_timeout": false,
+    "paths_assigned_to_different_queries": false,
+    "note": "Supplementary rerun runtimes and statuses are distinct from original formal runtime observations.",
+    "independent_route_checks_scope": "raw_HHMMSS_as_integer_only",
+    "processed_seconds_route_checks_passed": 0,
+    "processed_seconds_consistency": "failed for all 5567 returned BL sequences with unchanged queries"
+  }
+}

@@ -1,38 +1,27 @@
-# Data dictionary
+# Result and input definitions
 
-## Fixed queries
+## Fixed inputs
 
-`query_id` is the stable global key; `query_no` is a replicate number within a city/parameter/value group. Query columns retain source/target, budget, keywords/weights, k, seed, start_min/end_min and dwell_seconds. The legacy names describe intended second-valued query windows/dwell, but archive replay has exposed a mismatch with HHMMSS clock integers. Do not silently convert or regenerate query parameters.
+`queries/final_queries_1260.csv` contains 1,200 sensitivity rows plus 60 default-setting rows. `query_id` is globally unique; `query_no` is a replicate number within a city/parameter/value group. Query values, seeds, keyword weights and query-level dwell thresholds are preserved. Production network arithmetic uses elapsed seconds despite legacy `*_min` column names. See KNOWN_ISSUES.md for the historical query-clock limitation.
 
-## Composite final results
+## Historical archive: results/final
 
-`main_study.runtime.csv` has 3,600 formal rows. `status` is formal completed/timeout; `runtime_sec` is blank for formal timeouts. Those columns are unchanged from the supplied workbook. `supplementary_status`, `supplementary_timeout_threshold_sec` and `recovery_runtime_sec` refer only to later BL recovery. Route counts/best scores are available evidence, with origin named by `route_record_origin`; they need not describe the formal timed execution.
+`runtime.csv` contains the 3,600 supplied formal timing/status records. `status` and `runtime_sec` describe the original timed execution. `supplementary_status`, `supplementary_timeout_threshold_sec` and `recovery_runtime_sec` describe separate BL recovery attempts. A returned route count or best score may refer to those later paths, as identified by `route_record_origin`.
 
-`main_study.routes.csv` has 27,181 rows (21,614 A/AP, 5,567 supplementary BL). `all_methods.routes.csv` has 28,342 rows, including supplementary default A/AP queries. `route_level.routes.csv` remains the original A/AP-only 22,775 rows.
+`routes.csv` contains one canonical 28,342-row archive table. Its key is `(query_id, algorithm, route_rank)`; its edge lists use raw zero-based record IDs. It includes 22,775 A*/AP paths and 5,567 BL recovery paths. Joining `(query_id, algorithm)` against `runtime.csv` selects the 27,181 main-study paths. Default-setting paths are retained in the same table. A rank is an archived sequence position, not a certified score rank.
 
-Every integrated route identifies its `record_origin`, `edge_id_namespace`, `time_basis` and `validation_scope`. Route rank preserves archival ordering; it is not assumed to equal score order. A derived best_kc always uses the maximum recorded route score.
+`validation/queries.csv` records the query-method validation scope, keeping formal execution status separate from route-recovery status. `validation/routes.csv` joins the formerly separate time/score diagnostics by the route key. Unprefixed columns compare raw-integer and processed-second replay; `node_dwell_` columns retain the earlier node-versus-query dwell comparison on A*/AP routes; `bl_` columns retain the returned BL validation fields. Empty columns mean that diagnostic does not apply to the row.
 
-`main_study.jsonl` is normalized composite data, not raw executable stdout. Formal time/status fields are separate from `supplementary_execution`. Its BL solutions may come from a recovery run even when formal status is timeout. Fresh executions of run_experiments.py write raw ok/no_route/timeout/resource_limit/error records with a different manifest schema.
+`quality.csv` preserves the 240 historical recorded ratios. `audit_` columns contain the associated independent diagnostic and eligibility information. These are not the current 110 completed positive-reference comparisons and are not new certified optima. `runtime_summary.csv` contains 120 historical groups. `summary.json` combines the archive counts and audit summaries under explicit section names.
 
-`main_study.validation.csv` keeps formal `execution_status` separately from recovered `route_execution_status`. `validation_time_basis=raw_integer_clock` narrows any pass to archive replay; `processed_seconds_validation_status=not_passed` reports the unresolved second-valued input mismatch. No route record is not proof of infeasibility. No-route outcomes and timeouts remain distinct.
+`bl_recovery/runtime.csv` contains all 703 attempts. The `cohort` and original formal status distinguish the 653 previously completed queries from the 50 previously timed-out queries. Recovery outcomes remain ok/no_route/timeout; zero returned routes are not automatically a timeout. The extra interpretation and original A*/AP count columns apply to the 69 attempts without paths. BL paths are selected from `routes.csv` by algorithm; no duplicate 653/50 route files are stored.
 
-`coverage_quality.csv` preserves 240 recorded ratios; it is not a table of newly validated optima. See audit/coverage_quality.recorded_score_audit.csv before reuse.
+`source/bl_recovery.zip` consolidates the four received batch archives into separate member directories. Its input mapping is in `manifest.json`. All batch members remain available, including raw executable JSONL and validation files. Public copies omit machine-specific platform strings, while execution settings, timing/status fields, routes and scores remain unchanged. The A/AP mixed-schema source archive and original workbooks/tables are retained separately.
 
-## Edge IDs and time encoding
+## Current A*/AP verification: results/rechecked_aap
 
-Raw rows contain source, target, departure HHMMSS, arrival HHMMSS and cost. Their stable IDs are zero-based record indices, encoded as decimal strings in archived paths. Raw ID 0 corresponds to processed ID austin_e000001 or houston_e000001. Processed CSV tables convert HHMMSS values to elapsed seconds. These are different namespaces and different time bases.
+`aap.jsonl` is current executable output plus execution metadata. `aap.runtime.csv` separates query time from outer wall time. `aap.routes.csv` records processed edge IDs and elapsed-second arrivals. `aap.validation.csv` distinguishes passed replay from resource-limited attempts that could not be checked. A no-route output-schema pass is not an exhaustive city-scale infeasibility proof.
 
-The archive's arrival_time_sec/arrival_min fields contain unconverted raw-clock integers despite their names. Thus subtraction of archive clocks is not valid elapsed-second arithmetic. The independent audit retains both raw-clock outcomes and replay against converted seconds without pretending they are equivalent.
+`coverage_quality.all_queries.csv` records each query's eligibility and exclusion reason. Only normally completed positive-score A* references with completed, validated AP output contribute a ratio. The best score is the maximum over returned paths. Zero-score feasible outputs, no-route outcomes and interrupted exact runs remain distinct.
 
-Station-level dwell fields are legacy outputs; fixed-query implementations use the query-level dwell threshold. Measured times, statuses, query parameters, route sequences and scores are preserved. Public archival copies omit machine-specific platform strings and an obsolete narrative note; archived ZIP checksums identify the distributed copies.
-
-
-## Fresh A*/AP verification
-
-`results/rechecked_aap/aap.jsonl` is actual current executable output plus execution metadata. `aap.runtime.csv` separates query time from outer wall time and leaves failed/unavailable route counts blank. `aap.routes.csv` contains processed IDs and elapsed-second arrivals. `aap.validation.csv` distinguishes passed route replay from not_checked resource-limited attempts. A no-route schema pass checks no returned routes and is not a city-scale independent infeasibility oracle.
-
-`coverage_quality.all_queries.csv` has one row per fixed query, explicit eligibility and exclusion reasons. A route-free or incomplete output has no reported best-route score. AP with no route contributes zero coverage in an eligible positive-A* pair only, as the explicit empirical convention. All current quality aggregates are in quality_summary.json. 新质量子集 110 条；均值 1.00000000，中位数 1.00000000，IQR [1.00000000, 1.00000000]；110 条最佳得分相同；AP>A* 为 0 条。
-
-## Public-package metadata
-
-The distributed JSON/JSONL copies omit machine-specific kernel/platform strings. Python/compiler versions, seeds, input identities, execution limits, measured times, statuses and route/score fields remain available. BL archive entries in main_study.manifest.json retain both the original supplied ZIP hash and the distributed-copy hash where packaging changed.
+`summary.json` holds all execution and quality summaries; its `quality` section reports eligible pairs, mean/median/IQR, exact-score matches and per-method route-producing/positive-score/zero-score counts. `run_metadata.json` is the single input/execution identity record used for checkpoint validation and resume. It includes hashes, execution limits, concurrency, Python version and the recorded command.

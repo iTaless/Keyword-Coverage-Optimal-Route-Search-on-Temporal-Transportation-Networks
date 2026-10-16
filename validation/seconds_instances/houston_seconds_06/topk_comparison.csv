@@ -1,0 +1,11 @@
+instance_id,rank,exhaustive_kc,edge_ids,A_kc,BL_kc,A_matches,BL_matches
+houston_seconds_06,0,1.0,houston_e937655;houston_e831781,1,1,1,1
+houston_seconds_06,1,1.0,houston_e937655;houston_e831899,1,1,1,1
+houston_seconds_06,2,1.0,houston_e937655;houston_e831981,1,1,1,1
+houston_seconds_06,3,1.0,houston_e937773;houston_e831781,1,1,1,1
+houston_seconds_06,4,1.0,houston_e937773;houston_e831899,1,1,1,1
+houston_seconds_06,5,1.0,houston_e937773;houston_e831981,1,1,1,1
+houston_seconds_06,6,1.0,houston_e937855;houston_e831781,1,1,1,1
+houston_seconds_06,7,1.0,houston_e937855;houston_e831899,1,1,1,1
+houston_seconds_06,8,1.0,houston_e937855;houston_e831981,1,1,1,1
+houston_seconds_06,9,0.8,houston_e937655;houston_e831782,0.8,0.8,1,1

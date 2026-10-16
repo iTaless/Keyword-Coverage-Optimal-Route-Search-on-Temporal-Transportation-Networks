@@ -7,6 +7,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from results_layout import arrange_final, bl_archive_rows
 
 
 def rows(path):
@@ -23,7 +24,8 @@ def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 
 def main():
     root=Path(__file__).resolve().parents[1]
-    final=root/'results/final'; source=final/'source'; supp=final/'bl_supplementary'
+    final=root/'results/final'; source=final/'source'
+    release_manifest=json.loads((final/'manifest.json').read_text())
     args=[sys.executable,str(root/'scripts/import_author_results.py'),
           '--queries',str(root/'queries/final_queries_1260.csv'),
           '--runtime',str(source/'runtime_results_3600.csv'),
@@ -39,8 +41,8 @@ def main():
     validation=rows(final/'main_study.validation.csv')
     original_routes=rows(final/'main_study.routes.csv')
     ap_all=rows(final/'route_level.routes.csv')
-    recovered=rows(supp/'bl_combined_703.runtime.csv')
-    bl_routes=rows(supp/'bl_combined_703.routes.csv')
+    recovered=rows(final/'bl_recovery/runtime.csv')
+    bl_routes=bl_archive_rows(final,'.routes.csv')
     by_id={r['query_id']:r for r in recovered}
     by_route=collections.defaultdict(list)
     for r in bl_routes:by_route[r['query_id']].append(r)
@@ -119,7 +121,7 @@ def main():
                    bl_route_records=5567,main_study_route_records_including_supplementary_BL=27181,
                    all_methods_route_records=28342,
                    bl_validation_scope='raw_integer_clock_only',
-                   processed_seconds_route_consistency='failed; see audit/time_and_score_audit.summary.json',
+                   processed_seconds_route_consistency='failed; see validation/routes.csv and summary.json',
                    original_runtime_values_and_statuses_preserved=True)
     (final/'main_study.summary.json').write_text(json.dumps(summary,indent=2))
     manifest=json.loads((final/'main_study.manifest.json').read_text())
@@ -132,15 +134,22 @@ def main():
                     processed_seconds_compatibility='not established; replay fails',
                     supplementary_BL={'query_count':703,'queries_with_routes':634,'routes':5567,
                                       'formal_runtime_replacement':False,
-                                      'metadata_location':'results/final/source/bl_return_archives/',
-                                      'source_archives':[{'path':str(p.relative_to(root)),'sha256':sha(p)} for p in sorted((source/'bl_return_archives').glob('*.zip'))]},
+                                      'metadata_location':'results/final/source/bl_recovery.zip',
+                                      'original_batches':release_manifest['supplementary_BL']['original_batches'],
+                                      'source_archives':[{'path':'results/final/source/bl_recovery.zip','sha256':sha(source/'bl_recovery.zip')}]},
                     limitations=[
                         'Formal runtime cells and outcomes are preserved from the author workbook.',
                         'BL route fields may describe separate supplementary executions, including some whose original formal run timed out.',
                         'Raw HHMMSS-valued timestamps were used numerically by archived route runners; this is not equivalent to seconds.',
                         'All archived routes fail replay against processed second-valued edges with the currently released query windows.',
                         'Recorded A/AP quality values are preserved; 1146 route scores differ even under the archived raw clock.'])
+    for field in ('publication_metadata_scope','archival_publication_copies'):
+        if field in release_manifest:manifest[field]=release_manifest[field]
     (final/'main_study.manifest.json').write_text(json.dumps(manifest,indent=2))
+    subprocess.run([sys.executable,str(root/'scripts/audit_archived_routes.py')],check=True,stdout=subprocess.DEVNULL)
+    subprocess.run([sys.executable,str(root/'scripts/audit_score_provenance.py')],check=True,stdout=subprocess.DEVNULL)
+    subprocess.run([sys.executable,str(root/'scripts/summarize.py'),'--results',str(final/'main_study.jsonl'),'--out',str(final/'main_study.runtime_summary.csv')],check=True,stdout=subprocess.DEVNULL)
+    arrange_final(root)
     print('Integrated 5567 BL routes; 3600 original runtime/status cells preserved.')
 
 

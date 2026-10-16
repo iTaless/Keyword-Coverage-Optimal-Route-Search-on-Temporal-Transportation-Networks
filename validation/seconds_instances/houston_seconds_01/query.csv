@@ -1,0 +1,2 @@
+query_id,city,parameter,value,query_no,source,target,start_min,end_min,budget,keywords,weights,k,dwell_seconds,seed
+houston_seconds_01,Houston,small_seconds,1,1,1973,1972,35126,40526,70,8|169|2|181|17,0.20000000000000001|0.20000000000000001|0.20000000000000001|0.20000000000000001|0.20000000000000001,10,1640,20262928

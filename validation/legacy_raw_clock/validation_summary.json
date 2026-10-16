@@ -1,0 +1,18 @@
+{
+  "instances": 20,
+  "cities": {
+    "austin": 10,
+    "houston": 10
+  },
+  "vertices_range": [3, 6],
+  "scheduled_edges_range": [10, 83],
+  "feasible_routes_range": [7, 1226],
+  "dwell_seconds_range": [690, 1772],
+  "best_score_matches": 20,
+  "full_top_k_score_sequence_matches": 20,
+  "full_top_k_route_sequence_matches": 20,
+  "astar_timeouts": 0,
+  "enumeration_timeouts": 0,
+  "comparison_scope": "complete ordered top-k scores and original-edge sequences",
+  "score_tolerance": 1e-8
+}

@@ -1,0 +1,11 @@
+instance_id,rank,exhaustive_kc,edge_ids,A_kc,BL_kc,A_matches,BL_matches
+houston_seconds_02,0,1.0,houston_e907006;houston_e931340;houston_e1025596;houston_e894424,1,1,1,1
+houston_seconds_02,1,1.0,houston_e907006;houston_e931340;houston_e1025596;houston_e894463,1,1,1,1
+houston_seconds_02,2,1.0,houston_e907006;houston_e931340;houston_e1025596;houston_e894511,1,1,1,1
+houston_seconds_02,3,1.0,houston_e907006;houston_e931340;houston_e1025638;houston_e894424,1,1,1,1
+houston_seconds_02,4,1.0,houston_e907006;houston_e931340;houston_e1025638;houston_e894463,1,1,1,1
+houston_seconds_02,5,1.0,houston_e907006;houston_e931340;houston_e1025638;houston_e894511,1,1,1,1
+houston_seconds_02,6,1.0,houston_e907006;houston_e931340;houston_e1025642;houston_e894424,1,1,1,1
+houston_seconds_02,7,1.0,houston_e907006;houston_e931340;houston_e1025642;houston_e894463,1,1,1,1
+houston_seconds_02,8,1.0,houston_e907006;houston_e931340;houston_e1025642;houston_e894511,1,1,1,1
+houston_seconds_02,9,1.0,houston_e907006;houston_e931382;houston_e1025638;houston_e894424,1,1,1,1

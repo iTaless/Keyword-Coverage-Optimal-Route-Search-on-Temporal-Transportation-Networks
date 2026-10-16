@@ -17,6 +17,7 @@ import sys
 import time
 from pathlib import Path
 from verify_results import data, verify
+from results_layout import current_quality_summary
 
 
 def sha(path):
@@ -52,9 +53,10 @@ def main():
               'timeout_seconds':a.timeout,'query_count':len(queries),'memory_limit_mib':a.memory_mib,
               'datasets':{city:{f:sha(root/f'data/processed/{city}/{f}') for f in ('stations.csv','trips.csv')}
                           for city in sorted({q['city'] for q in queries})}}
-    identity_file=output/'input_identity.json'
+    identity_file=output/'run_metadata.json'
     if identity_file.exists():
-        if json.loads(identity_file.read_text())!=identity:raise RuntimeError('Inputs changed; use a new output directory.')
+        previous=json.loads(identity_file.read_text())
+        if any(previous.get(k)!=v for k,v in identity.items()):raise RuntimeError('Inputs changed; use a new output directory.')
     else:identity_file.write_text(json.dumps(identity,indent=2))
     checkpoint=output/'aap.jsonl'
     records=[]
@@ -160,6 +162,7 @@ def main():
              'ratios_above_one':sum(x>1+1e-10 for x in ratios),
              'time_basis':'processed_seconds','author_workstation_runtime_replaced':False,
              'scope':'new scoring recheck on unchanged published query values; not restoration of historical query intent'}
+    summary['quality']=current_quality_summary(runtime,quality)
     (output/'summary.json').write_text(json.dumps(summary,indent=2))
     meta={**identity,'workers':a.workers,
           'aggregation_script_sha256':sha(Path(__file__)),

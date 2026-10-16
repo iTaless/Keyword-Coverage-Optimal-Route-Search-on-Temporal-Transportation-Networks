@@ -39,7 +39,7 @@ def panel(ax, rows, factor, city):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--runtime',required=True,help='main_study.runtime.csv; recovery_runtime_sec is ignored')
+    p.add_argument('--runtime',required=True,help='historical runtime.csv; recovery_runtime_sec is ignored')
     p.add_argument('--out-dir',required=True)
     a=p.parse_args()
     import matplotlib

@@ -1,0 +1,278 @@
+{
+  "A": {
+    "query_id": "austin_seconds_03",
+    "algorithm": "A",
+    "status": "ok",
+    "runtime_ms": 0.914144,
+    "load_ms": 0.264142,
+    "preprocess_ms": 0.06094,
+    "search_ms": 0.589062,
+    "expanded": 335,
+    "generated": 551,
+    "window_edges": 74,
+    "time_edges": 71,
+    "filtered_edges": 71,
+    "rho": 8,
+    "rounds": 20,
+    "runs": 10,
+    "seed": 20261928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284115"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74367
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284175"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75148
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284180"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 76348
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284206"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74528
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284215"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75968
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284240"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74390
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284279"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74668
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284329"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75608
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284402"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75749
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284427"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 76148
+      }
+    ]
+  },
+  "BL": {
+    "query_id": "austin_seconds_03",
+    "algorithm": "BL",
+    "status": "ok",
+    "runtime_ms": 0.503986,
+    "load_ms": 0.208418,
+    "preprocess_ms": 0,
+    "search_ms": 0.295568,
+    "expanded": 122,
+    "static_nodes": 45,
+    "static_arcs": 140,
+    "dwell_seconds": 695,
+    "seed": 20261928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284115"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74367
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284175"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75148
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284180"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 76348
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284206"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74528
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284215"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75968
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284240"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74390
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284279"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74668
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284329"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75608
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284402"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 75749
+      },
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284427"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 76148
+      }
+    ]
+  },
+  "AP": {
+    "query_id": "austin_seconds_03",
+    "algorithm": "AP",
+    "status": "ok",
+    "runtime_ms": 0.552959,
+    "load_ms": 0.227037,
+    "preprocess_ms": 0.083674,
+    "search_ms": 0.242248,
+    "expanded": 30,
+    "generated": 243,
+    "window_edges": 74,
+    "time_edges": 71,
+    "filtered_edges": 71,
+    "rho": 8,
+    "rounds": 20,
+    "runs": 10,
+    "seed": 20261928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "austin_e029719",
+          "austin_e029924",
+          "austin_e284115"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74367
+      },
+      {
+        "edge_ids": [
+          "austin_e029790",
+          "austin_e029995",
+          "austin_e284361"
+        ],
+        "score": 1,
+        "budget": 16.990000000000002,
+        "arrival_min": 74210
+      }
+    ]
+  }
+}

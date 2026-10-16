@@ -1,0 +1,11 @@
+instance_id,rank,exhaustive_kc,edge_ids,A_kc,BL_kc,A_matches,BL_matches
+austin_seconds_02,0,1.0,austin_e109185;austin_e262256,1,1,1,1
+austin_seconds_02,1,1.0,austin_e109185;austin_e262270,1,1,1,1
+austin_seconds_02,2,1.0,austin_e109185;austin_e262287,1,1,1,1
+austin_seconds_02,3,1.0,austin_e109185;austin_e262288,1,1,1,1
+austin_seconds_02,4,1.0,austin_e109185;austin_e262340,1,1,1,1
+austin_seconds_02,5,1.0,austin_e109185;austin_e262362,1,1,1,1
+austin_seconds_02,6,1.0,austin_e109185;austin_e262424,1,1,1,1
+austin_seconds_02,7,1.0,austin_e109185;austin_e262426,1,1,1,1
+austin_seconds_02,8,1.0,austin_e109185;austin_e262456,1,1,1,1
+austin_seconds_02,9,1.0,austin_e109185;austin_e262481,1,1,1,1

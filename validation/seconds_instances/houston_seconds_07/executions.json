@@ -1,0 +1,247 @@
+{
+  "A": {
+    "query_id": "houston_seconds_07",
+    "algorithm": "A",
+    "status": "ok",
+    "runtime_ms": 0.446652,
+    "load_ms": 0.343139,
+    "preprocess_ms": 0.082312,
+    "search_ms": 0.021201,
+    "expanded": 18,
+    "generated": 20,
+    "window_edges": 10,
+    "time_edges": 10,
+    "filtered_edges": 10,
+    "rho": 8,
+    "rounds": 20,
+    "runs": 10,
+    "seed": 20262928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431696"
+        ],
+        "score": 1,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431709"
+        ],
+        "score": 1,
+        "budget": 7.7,
+        "arrival_min": 42420
+      },
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431688"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 41220
+      },
+      {
+        "edge_ids": [
+          "houston_e1301259",
+          "houston_e1431696"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301272",
+          "houston_e1431696"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301272",
+          "houston_e1431709"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 42420
+      },
+      {
+        "edge_ids": [
+          "houston_e1301236",
+          "houston_e1431688"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 41220
+      },
+      {
+        "edge_ids": [
+          "houston_e1301236",
+          "houston_e1431696"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301236",
+          "houston_e1431709"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 42420
+      },
+      {
+        "edge_ids": [
+          "houston_e1301271",
+          "houston_e1431688"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 41220
+      }
+    ]
+  },
+  "BL": {
+    "query_id": "houston_seconds_07",
+    "algorithm": "BL",
+    "status": "ok",
+    "runtime_ms": 0.21359699999999998,
+    "load_ms": 0.189571,
+    "preprocess_ms": 0,
+    "search_ms": 0.024026,
+    "expanded": 16,
+    "static_nodes": 12,
+    "static_arcs": 23,
+    "dwell_seconds": 839,
+    "seed": 20262928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431696"
+        ],
+        "score": 1,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431709"
+        ],
+        "score": 1,
+        "budget": 7.7,
+        "arrival_min": 42420
+      },
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431688"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 41220
+      },
+      {
+        "edge_ids": [
+          "houston_e1301259",
+          "houston_e1431696"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301272",
+          "houston_e1431696"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301272",
+          "houston_e1431709"
+        ],
+        "score": 0.8,
+        "budget": 7.7,
+        "arrival_min": 42420
+      },
+      {
+        "edge_ids": [
+          "houston_e1301236",
+          "houston_e1431688"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 41220
+      },
+      {
+        "edge_ids": [
+          "houston_e1301236",
+          "houston_e1431696"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 43080
+      },
+      {
+        "edge_ids": [
+          "houston_e1301236",
+          "houston_e1431709"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 42420
+      },
+      {
+        "edge_ids": [
+          "houston_e1301271",
+          "houston_e1431688"
+        ],
+        "score": 0.6000000000000001,
+        "budget": 7.7,
+        "arrival_min": 41220
+      }
+    ]
+  },
+  "AP": {
+    "query_id": "houston_seconds_07",
+    "algorithm": "AP",
+    "status": "ok",
+    "runtime_ms": 0.37811,
+    "load_ms": 0.185705,
+    "preprocess_ms": 0.020711,
+    "search_ms": 0.171694,
+    "expanded": 20,
+    "generated": 80,
+    "window_edges": 10,
+    "time_edges": 10,
+    "filtered_edges": 10,
+    "rho": 8,
+    "rounds": 20,
+    "runs": 10,
+    "seed": 20262928,
+    "solutions": [
+      {
+        "edge_ids": [
+          "houston_e1301251",
+          "houston_e1431709"
+        ],
+        "score": 1,
+        "budget": 7.7,
+        "arrival_min": 42420
+      }
+    ]
+  }
+}

@@ -5,12 +5,13 @@ C++17 implementations of exact A*, the AP heuristic and a custom time-expanded B
 ## Build and test
 
 ```bash
+python3 scripts/prepare_data.py
 make
 make test
 python3 scripts/check_release_consistency.py
 ```
 
-Python 3.9+ and a C++17 compiler are required. Install `requirements.txt` for NumPy validation and optional plotting. CMake configuration is also included.
+Python 3.9+ and a C++17 compiler are required. Install `requirements.txt` for NumPy validation and optional plotting. CMake configuration is also included. Network snapshots are stored as compressed parts in `data/archive/`; the preparation command restores the original `data/raw/` and `data/processed/` files and checks their SHA-256 values. Run it once after cloning, before any experiment or release check.
 
 ## Reproduce
 
@@ -30,7 +31,7 @@ All current search time arithmetic uses elapsed seconds despite legacy `*_min` c
 | Directory | Contents |
 | --- | --- |
 | `src/`, `baseline_bl/` | Current algorithms and BL fixed-query entry point |
-| `data/raw/`, `data/processed/` | Released network snapshots and deterministic conversion inputs |
+| `data/archive/` | Compressed released network snapshots; `prepare_data.py` restores `data/raw/` and `data/processed/` |
 | `queries/` | Fixed query rows and time-unit information |
 | `results/rechecked_aap/` | 2,520 attempts, 2,080 returned routes, independent replay and 110 quality pairs |
 | `validation/seconds_instances/` | 20 tractable instances, all three methods and 200 exhaustive rank comparisons |
@@ -42,8 +43,10 @@ All current search time arithmetic uses elapsed seconds despite legacy `*_min` c
 Paper figure exports and internal manuscript/review working notes are not included. Runtime plots can be regenerated from the retained measurements:
 
 ```bash
-python3 scripts/plot_results.py --runtime results/final/main_study.runtime.csv --out-dir results/local_figures
+python3 scripts/plot_results.py --runtime results/final/runtime.csv --out-dir results/local_figures
 ```
+
+Result tables are indexed in [results/README.md](results/README.md).
 
 See [STATUS.md](STATUS.md), [the experimental protocol](docs/EXPERIMENT_PROTOCOL.md), [data dictionary](docs/DATA_DICTIONARY.md), [data provenance](docs/DATA_PROVENANCE.md), and [evidence limitations](docs/KNOWN_ISSUES.md).
 

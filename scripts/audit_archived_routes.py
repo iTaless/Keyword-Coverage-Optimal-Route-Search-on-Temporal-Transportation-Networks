@@ -6,6 +6,7 @@ import csv
 import json
 import math
 from pathlib import Path
+from results_layout import merge
 
 
 def rows(path):
@@ -65,10 +66,11 @@ def main():
     args = parser.parse_args()
     root = Path(args.root).resolve()
     final = root / 'results/final'
+    legacy = (final/'route_level.routes.csv').exists()
     out = final / 'audit'
-    out.mkdir(exist_ok=True)
+    if legacy:out.mkdir(exist_ok=True)
     queries = {r['query_id']:r for r in rows(root/'queries/final_queries_1260.csv')}
-    source = rows(final/'route_level.routes.csv') + rows(final/'bl_supplementary/bl_combined_703.routes.csv')
+    source = rows(final/('all_methods.routes.csv' if legacy else 'routes.csv'))
     needed = collections.defaultdict(set)
     for r in source:
         needed[r['city']].update(int(x) for x in r['edge_ids'].split(';'))
@@ -114,7 +116,11 @@ def main():
                 'processed_seconds_score_match':int(sec_ok and abs(sec_score-float(r['kc']))<1e-6),
                 'processed_edge_ids':';'.join(f'{r["city"].lower()}_e{x+1:06d}' for x in ids)}
         details.append(detail)
-    write(out/'all_routes.time_and_score_audit.csv',details)
+    if legacy:
+        write(out/'all_routes.time_and_score_audit.csv',details)
+    else:
+        existing=rows(final/'validation/routes.csv')
+        write(final/'validation/routes.csv',merge(existing,details,require_all=True))
     for alg in ('A','AP','BL'):
         rr=[r for r in details if r['algorithm']==alg]
         summary[alg]={'routes':len(rr),
@@ -125,7 +131,7 @@ def main():
     by_execution=collections.defaultdict(list)
     for r in details:by_execution[r['query_id'],r['algorithm']].append(r)
     quality=[]
-    for r in rows(final/'coverage_quality.csv'):
+    for r in rows(final/('coverage_quality.csv' if legacy else 'quality.csv')):
         a=by_execution[r['query_id'],'A']; ap=by_execution[r['query_id'],'AP']
         abest=max(float(x['raw_integer_clock_recomputed_kc']) for x in a)
         pbest=max((float(x['raw_integer_clock_recomputed_kc']) for x in ap),default=0)
@@ -137,14 +143,23 @@ def main():
                         'raw_clock_ap_best_matches_recorded':int(abs(pbest-float(r['ap_best_kc']))<1e-6),
                         'all_reference_routes_pass_processed_seconds':int(all(x['processed_seconds_structural_pass'] for x in a)),
                         'eligibility_under_declared_seconds_verified':0})
-    write(out/'coverage_quality.recorded_score_audit.csv',quality)
+    if legacy:
+        write(out/'coverage_quality.recorded_score_audit.csv',quality)
+    else:
+        existing=rows(final/'quality.csv')
+        write(final/'quality.csv',merge(existing,quality,('query_id',),prefix='audit_',require_all=True))
     report={'network_inputs':network_info,'route_audit_by_algorithm':summary,
             'recorded_quality_queries':len(quality),
             'recorded_quality_queries_with_any_raw_clock_score_mismatch':sum(r['any_raw_clock_route_score_mismatch'] for r in quality),
             'recorded_quality_queries_with_changed_best_score':sum(not r['raw_clock_astar_best_matches_recorded'] or not r['raw_clock_ap_best_matches_recorded'] for r in quality),
             'declared_seconds_and_raw_integer_clock_are_not_equivalent':True,
             'recorded_quality_values_overwritten':False}
-    (out/'time_and_score_audit.summary.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+    if legacy:
+        (out/'time_and_score_audit.summary.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
+    else:
+        summary=json.loads((final/'summary.json').read_text())
+        summary['audits']['time_and_score']=report
+        (final/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 
 
